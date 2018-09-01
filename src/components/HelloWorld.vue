@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <router-link to="/index">Go to Foo</router-link>
     <ul>
       <li>
         <a
