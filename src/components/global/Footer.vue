@@ -1,18 +1,13 @@
 <template>
-  <div class="index">
-    <toolBar></toolBar>
-
-    <h1>{{ msg }}</h1>
-    hello
-  </div>
+  <v-footer>Design by hoge. {{msg}}</v-footer>
 </template>
 
 <script>
 export default {
-  name: 'index',
+  name: 'Footer',
   data() {
     return {
-      msg: 'Welcome to index page',
+      msg: 'This is footer',
     };
   },
 };

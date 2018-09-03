@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <toolBar></toolBar>
     <router-view/>
+    <globalFooter></globalFooter>
   </div>
 </template>
 

@@ -1,17 +1,23 @@
 /* eslint-disable import/first */
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
+
 import Vue from 'vue';
 import App from './App';
 import router from './router';
 import Vuetify from 'vuetify';
 
-import ToolBar from './components/ToolBar';
+import ToolBar from './components/global/ToolBar';
+import Footer from './components/global/Footer';
 
 Vue.config.productionTip = false;
 
 // Vue.component('toolBar', require('./components/ToolBar.vue'));
 Vue.component('toolBar', ToolBar);
+Vue.component('globalFooter', Footer);
 
-Vue.use(Vuetify);
+Vue.use(Vuetify, {
+  iconfont: 'mdi',
+});
 
 /* eslint-disable no-new */
 new Vue({
