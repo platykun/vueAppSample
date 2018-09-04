@@ -1,7 +1,13 @@
 <template>
   <div class="index">
-    <h1>{{ msg }}</h1>
-    JoinRoom
+    <div class="flex xs12 sm6 offset-sm3">
+      <v-combobox
+        v-model="room"
+        :items="rooms"
+        label="ルーム名"
+      ></v-combobox>
+    </div>
+    <v-btn to="./">ルームに参加</v-btn>
   </div>
 </template>
 
@@ -11,6 +17,13 @@ export default {
   data() {
     return {
       msg: 'Welcome to JoinRoom page',
+      room: '',
+      rooms: [
+        'aroom',
+        'broom1',
+        'broom2',
+        'croom1',
+      ],
     };
   },
 };

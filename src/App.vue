@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <toolBar></toolBar>
-    <router-view/>
-    <globalFooter></globalFooter>
+    <v-app>
+      <toolBar></toolBar>
+      <router-view/>
+      <globalFooter></globalFooter>
+    </v-app>
   </div>
 </template>
 
