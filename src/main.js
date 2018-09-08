@@ -5,6 +5,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import Vuetify from 'vuetify';
+import VeeValidate from 'vee-validate';
 
 import ToolBar from './components/global/ToolBar';
 import Footer from './components/global/Footer';
@@ -15,9 +16,13 @@ Vue.config.productionTip = false;
 Vue.component('toolBar', ToolBar);
 Vue.component('globalFooter', Footer);
 
-Vue.use(Vuetify, {
-  iconfont: 'mdi',
-});
+Vue.use(VeeValidate);
+
+Vue.use(
+  Vuetify, {
+    iconfont: 'mdi',
+  },
+);
 
 /* eslint-disable no-new */
 new Vue({
