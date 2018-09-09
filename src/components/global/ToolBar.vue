@@ -1,6 +1,6 @@
 <template>
-  <v-toolbar>
-    <v-toolbar-side-icon></v-toolbar-side-icon>
+  <v-toolbar color="teal" dark clipped="true">
+    <v-toolbar-side-icon><v-icon>dashboard</v-icon></v-toolbar-side-icon>
     <v-toolbar-title>Title</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">

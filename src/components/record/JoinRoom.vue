@@ -7,11 +7,14 @@
         label="ルーム名"
       ></v-combobox>
     </div>
-    <v-btn to="./">ルームに参加</v-btn>
+    <v-btn to=".">ルームに参加</v-btn>
+    <p>{{$data}}</p>
   </div>
 </template>
 
 <script>
+import api from '@/helper/api';
+
 export default {
   name: 'room',
   data() {
@@ -24,7 +27,16 @@ export default {
         'broom2',
         'croom1',
       ],
+      items: [],
+      hoge: [],
     };
+  },
+  beforeCreate() {
+    const self = this;
+    api.get('room/find_all/0').then(
+      (response) => {
+        self.rooms = Object.keys(response.data).map(key => response.data[key].boardTitle);
+      });
   },
 };
 </script>

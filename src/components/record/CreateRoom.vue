@@ -7,7 +7,7 @@
       <v-text-field label="プレイ人数" v-model="player"></v-text-field>
       <v-text-field label="備考" v-model="remarks"></v-text-field>
     </div>
-    <v-btn to="./">ルーム作成</v-btn>
+    <v-btn to=".">ルーム作成</v-btn>
   </div>
 </template>
 
