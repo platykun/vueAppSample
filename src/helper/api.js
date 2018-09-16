@@ -16,8 +16,25 @@ export default {
     return promise;
   },
 
+  requestWithToken(method, url, params, token) {
+    let promise = null;
+    const fullUrl = process.env.API_URL + url;
+
+    promise = axios({
+      method: params,
+      url: fullUrl,
+      header: { authorization: token },
+    });
+    promise.catch(() => alert('エラーが発生しました'));
+    return promise;
+  },
+
   get(url, params) {
     return this.request('get', url, params);
+  },
+
+  getWithToken(url, params, token) {
+    this.requestWithToken('get', url, params, token);
   },
 
   post(url, params) {

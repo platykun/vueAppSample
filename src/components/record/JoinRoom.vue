@@ -21,21 +21,15 @@ export default {
     return {
       msg: 'Welcome to JoinRoom page',
       room: '',
-      rooms: [
-        'aroom',
-        'broom1',
-        'broom2',
-        'croom1',
-      ],
-      items: [],
-      hoge: [],
+      rooms: [],
     };
   },
   beforeCreate() {
     const self = this;
     api.get('room/find_all/0').then(
       (response) => {
-        self.rooms = Object.keys(response.data).map(key => response.data[key].boardTitle);
+        self.rooms = Object.keys(response.data.result)
+          .map(key => response.data.result[key].roomName);
       });
   },
 };
