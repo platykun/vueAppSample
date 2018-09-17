@@ -34,12 +34,26 @@ export default {
       password: '',
     };
   },
+  mounted() {
+    if (localStorage.userId) {
+      this.userId = localStorage.userId;
+    }
+    if (localStorage.password) {
+      this.password = localStorage.password;
+    }
+  },
   methods: {
     sendLogin() {
       api.login(this.userId, this.password).then(
         (response) => {
           // eslint-disable-next-line
           console.log(response);
+          localStorage.userId = this.userId;
+          localStorage.password = this.password;
+          localStorage.token = response.data.token;
+          localStorage.authList = response.data.authList;
+          localStorage.logined = true;
+
           this.$router.push({ path: './index' });
         })
         .catch((error) => {
