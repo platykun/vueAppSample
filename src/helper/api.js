@@ -21,9 +21,10 @@ export default {
     const fullUrl = process.env.API_URL + url;
 
     promise = axios({
-      method: params,
+      method,
       url: fullUrl,
       header: { authorization: token },
+      params,
     });
     promise.catch(() => alert('エラーが発生しました'));
     return promise;
@@ -39,5 +40,15 @@ export default {
 
   post(url, params) {
     return this.request('post', url, params);
+  },
+
+  // TODO: 将来的に外出しする.
+  login(loginId, pass) {
+    const apiUrl = process.env.API_URL;
+
+    return axios.post(`${apiUrl}/user/login`, {
+      loginId,
+      pass,
+    });
   },
 };
