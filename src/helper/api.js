@@ -16,18 +16,16 @@ export default {
     return promise;
   },
 
-  requestWithToken(method, url, params, token) {
-    let promise = null;
+  requestWithToken(method, url, params) {
+    const token = localStorage.token;
     const fullUrl = process.env.API_URL + url;
 
-    promise = axios({
+    return axios({
       method,
       url: fullUrl,
-      header: { authorization: token },
-      params,
+      headers: { authorization: token },
+      data: params,
     });
-    promise.catch(() => alert('エラーが発生しました'));
-    return promise;
   },
 
   get(url, params) {
@@ -35,7 +33,7 @@ export default {
   },
 
   getWithToken(url, params, token) {
-    this.requestWithToken('get', url, params, token);
+    this.requestWithToken('post', url, params, token);
   },
 
   post(url, params) {
@@ -50,5 +48,18 @@ export default {
       loginId,
       pass,
     });
+  },
+
+  createRoom(roomName, player, boardTitle, placeName, remark) {
+    const params = {
+      roomName,
+      player,
+      boardTitle,
+      placeName,
+      remark,
+    };
+    const url = '/user/1/create_room';
+
+    return this.requestWithToken('put', url, params);
   },
 };
