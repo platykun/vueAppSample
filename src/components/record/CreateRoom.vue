@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import api from '@/helper/api';
+import CreateRoom from '@/domain/room/CreateRoom';
 
 export default {
   name: 'room',
@@ -29,7 +29,10 @@ export default {
   },
   methods: {
     createRoom() {
-      api.createRoom(this.roomName, this.player, this.boardTitle, this.placeName, this.remark).then(
+      const createRoom = new CreateRoom(
+        this.roomName, this.player, this.boardTitle, this.placeName, this.remark);
+
+      createRoom.createRoom().then(
         (response) => {
           // eslint-disable-next-line
           console.log(response);

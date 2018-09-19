@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import api from '@/helper/api';
+import Login from '@/domain/room/Login';
 
 export default {
   name: 'index',
@@ -44,7 +44,9 @@ export default {
   },
   methods: {
     sendLogin() {
-      api.login(this.userId, this.password).then(
+      const login = new Login(this.userId, this.password);
+
+      login.login().then(
         (response) => {
           // eslint-disable-next-line
           console.log(response);

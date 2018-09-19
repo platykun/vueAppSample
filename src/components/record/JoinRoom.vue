@@ -14,6 +14,7 @@
 
 <script>
 import api from '@/helper/api';
+import JoinRoom from '@/domain/room/JoinRoom';
 
 export default {
   name: 'room',
@@ -31,6 +32,20 @@ export default {
         self.rooms = Object.keys(response.data.result)
           .map(key => response.data.result[key].roomName);
       });
+  },
+  watch: {
+    room(val) {
+      new JoinRoom(val).findRoom().then(
+        (response) => {
+          // eslint-disable-next-line
+          console.log(response);
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
+          this.msg = '登録に失敗しました.';
+        });
+    },
   },
 };
 </script>

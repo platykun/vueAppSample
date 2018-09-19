@@ -49,17 +49,4 @@ export default {
       pass,
     });
   },
-
-  createRoom(roomName, player, boardTitle, placeName, remark) {
-    const params = {
-      roomName,
-      player,
-      boardTitle,
-      placeName,
-      remark,
-    };
-    const url = '/user/1/create_room';
-
-    return this.requestWithToken('put', url, params);
-  },
 };
