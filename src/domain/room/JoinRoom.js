@@ -11,4 +11,14 @@ export default class JoinRoom {
 
     return api.requestWithToken('get', url);
   }
+
+  static findAllRoom() {
+    return api.requestWithToken('get', '/room/find_all/0');
+  }
+
+  // TODO: userId, idを取得する仕組みができてない
+  static joinRoom(id) {
+    const url = `/user/1/join/${id}`;
+    return api.requestWithToken('put', url);
+  }
 }

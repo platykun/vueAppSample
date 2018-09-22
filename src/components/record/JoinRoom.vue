@@ -1,11 +1,25 @@
 <template>
   <div class="index">
+    <v-layout row>
+      <v-flex xs12 sm6 offset-sm3>
+      </v-flex>
+    </v-layout>
+
+
     <div class="flex xs12 sm6 offset-sm3">
-      <v-combobox
-        v-model="room"
-        :items="rooms"
-        label="ルーム名"
-      ></v-combobox>
+      <v-text-field label="ルーム名検索" v-model="room"></v-text-field>
+      <v-list subheader>
+        <v-subheader>検索結果</v-subheader>
+
+        <v-list-tile
+          v-for="oneRoom in rooms"
+          :key="oneRoom"
+          @click="joinRoom(oneRoom.id)">
+          <v-list-tile-content @click="notifications = !notifications">
+            <v-list-tile-title v-text="oneRoom.roomName"></v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
     </div>
     <v-btn to=".">ルームに参加</v-btn>
     <p>{{$data}}</p>
@@ -13,7 +27,6 @@
 </template>
 
 <script>
-import api from '@/helper/api';
 import JoinRoom from '@/domain/room/JoinRoom';
 
 export default {
@@ -26,19 +39,23 @@ export default {
     };
   },
   beforeCreate() {
-    const self = this;
-    api.get('room/find_all/0').then(
+    JoinRoom.findAllRoom().then(
       (response) => {
-        self.rooms = Object.keys(response.data.result)
-          .map(key => response.data.result[key].roomName);
+        this.rooms = response.data.result;
+        // .map(result => result.roomName);
       });
+  },
+  methods: {
+    joinRoom(val) {
+      JoinRoom.joinRoom(val);
+      this.$router.push({ path: '.' });
+    },
   },
   watch: {
     room(val) {
       new JoinRoom(val).findRoom().then(
         (response) => {
-          // eslint-disable-next-line
-          console.log(response);
+          this.rooms = response.data.result;
         })
         .catch((error) => {
           // eslint-disable-next-line
