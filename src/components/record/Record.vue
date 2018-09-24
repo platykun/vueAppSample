@@ -1,11 +1,24 @@
 <template>
   <div class="record">
-    Record
-    <v-btn to="./create">ルーム作成</v-btn>
-    <v-btn to="./join">ルーム参加</v-btn>
-    <v-btn to="./result">結果入力</v-btn>
-    <v-btn to="./checkin">チェックイン</v-btn>
     <router-view></router-view>
+    <v-speed-dial v-model="fab" bottom floating fixed right>
+      <v-btn slot="activator" v-model="fab" color="blue darken-2" dark fab>
+        <v-icon>menu</v-icon>
+        <v-icon>close</v-icon>
+      </v-btn>
+      <v-btn fab dark small color="green">
+        <v-icon>note_add</v-icon>
+      </v-btn>
+      <v-btn fab dark small color="green">
+        <v-icon>location_on</v-icon>
+      </v-btn>
+      <v-btn fab dark small color="green">
+        <v-icon>group_add</v-icon>
+      </v-btn>
+      <v-btn fab dark small color="green">
+        <v-icon>group</v-icon>
+      </v-btn>
+    </v-speed-dial>
   </div>
 </template>
 
@@ -15,6 +28,7 @@ export default {
   data() {
     return {
       msg: 'Welcome to record page',
+      fab: false,
     };
   },
 };
