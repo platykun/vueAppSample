@@ -42,13 +42,12 @@ export default {
     JoinRoom.findAllRoom().then(
       (response) => {
         this.rooms = response.data.result;
-        // .map(result => result.roomName);
       });
   },
   methods: {
     joinRoom(val) {
       JoinRoom.joinRoom(val);
-      this.$router.push({ path: '.' });
+      this.$router.push({ path: './top' });
     },
   },
   watch: {

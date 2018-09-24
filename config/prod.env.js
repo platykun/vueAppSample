@@ -1,5 +1,5 @@
 'use strict';
 module.exports = {
   NODE_ENV: '"production"',
-  API_URL: '"http://board-api.sanaudon.com"',
+  API_URL: '"https://board-management-api.herokuapp.com/"',
 };

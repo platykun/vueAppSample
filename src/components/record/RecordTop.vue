@@ -1,5 +1,6 @@
 <template>
   <div class="record">
+    RecordTop
     <div class="flex xs12 sm6 offset-sm3">
       <h2>参加中ルーム情報</h2>
       <v-list>
@@ -42,10 +43,10 @@
         </v-list-tile>
       </v-list>
     </div>
-    <v-btn to="record/create">ルーム作成</v-btn>
-    <v-btn to="record/join">ルーム参加</v-btn>
-    <v-btn to="record/result">結果入力</v-btn>
-    <v-btn to="record/checkin">チェックイン</v-btn>
+    <v-btn to="./create">ルーム作成</v-btn>
+    <v-btn to="./join">ルーム参加</v-btn>
+    <v-btn to="./result">結果入力</v-btn>
+    <v-btn to="./checkin">チェックイン</v-btn>
 
     <router-view></router-view>
   </div>

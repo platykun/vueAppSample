@@ -3,6 +3,7 @@ import Router from 'vue-router';
 // import HelloWorld from '@/components/HelloWorld';
 import Login from '@/components/top/Login';
 import Index from '@/components/top/Index';
+import Record from '@/components/record/Record';
 import RecordTop from '@/components/record/RecordTop';
 import CreateRoom from '@/components/record/CreateRoom';
 import JoinRoom from '@/components/record/JoinRoom';
@@ -27,8 +28,13 @@ export default new Router({
     {
       path: '/record',
       name: 'Record',
-      component: RecordTop,
+      component: Record,
       children: [
+        {
+          path: 'top',
+          name: 'RecordTop',
+          component: RecordTop,
+        },
         {
           path: 'create',
           name: 'CreateRoom',
