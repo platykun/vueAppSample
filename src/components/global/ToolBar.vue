@@ -51,6 +51,7 @@ export default {
       drawer: null,
       items: [
         { header: '記録' },
+        { action: '/record/top', title: '記録トップ', icon: 'home' },
         { action: '/record/checkin', title: 'チェックイン', icon: 'location_on' },
         { action: '/record/create', title: 'ルーム作成', icon: 'group' },
         { action: '/record/join', title: 'ルーム参加', icon: 'group_add' },

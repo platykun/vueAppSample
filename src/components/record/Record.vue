@@ -6,17 +6,20 @@
         <v-icon>menu</v-icon>
         <v-icon>close</v-icon>
       </v-btn>
-      <v-btn fab dark small color="green">
+      <v-btn fab dark small color="green" to="/record/result">
         <v-icon>note_add</v-icon>
       </v-btn>
-      <v-btn fab dark small color="green">
+      <v-btn fab dark small color="green" to="/record/checkin">
         <v-icon>location_on</v-icon>
       </v-btn>
-      <v-btn fab dark small color="green">
+      <v-btn fab dark small color="green" to="/record/join">
         <v-icon>group_add</v-icon>
       </v-btn>
-      <v-btn fab dark small color="green">
+      <v-btn fab dark small color="green" to="/record/create">
         <v-icon>group</v-icon>
+      </v-btn>
+      <v-btn fab dark small color="green" to="/record/top">
+        <v-icon>home</v-icon>
       </v-btn>
     </v-speed-dial>
   </div>
