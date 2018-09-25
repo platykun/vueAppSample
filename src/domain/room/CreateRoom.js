@@ -18,7 +18,7 @@ export default class CreateRoom {
       placeName: this.placeName,
       remark: this.remark,
     };
-    const url = '/user/1/create_room';
+    const url = '/user/create_room';
 
     return api.requestWithToken('put', url, params);
   }

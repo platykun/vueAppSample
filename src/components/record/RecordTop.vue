@@ -87,6 +87,8 @@ export default {
     };
   },
   beforeCreate() {
+    // eslint-disable-next-line
+    console.log("beforecreate called");
     Detail.getDetail().then(
       (response) => {
         const result = response.data.result;
